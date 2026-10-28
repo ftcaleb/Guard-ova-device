@@ -1,0 +1,40 @@
+# dependencies
+node_modules/
+
+# Expo / React Native (generated)
+.expo/
+dist/
+web-build/
+/ios
+/android
+expo-env.d.ts
+*.tsbuildinfo
+
+# secrets: never commit real keys
+.env
+.env*.local
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+
+# design package: generated / local-only
+design/fonts/_source/
+design/reference-prototype/node_modules/
+design/reference-prototype/package-lock.json
+design/reference-prototype/dist/
+
+# Python
+.venv/
+__pycache__/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+npm-debug.*

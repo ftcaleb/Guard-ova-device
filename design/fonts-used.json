@@ -1,0 +1,457 @@
+[
+  {
+    "family": "DM Sans",
+    "size": 5,
+    "weight": 600,
+    "usedBy": [
+      "span.device-wordmark"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 6,
+    "weight": 400,
+    "usedBy": [
+      "span",
+      "span.map-attribution"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 7,
+    "weight": 400,
+    "usedBy": [
+      "span.map-live",
+      "span"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 7,
+    "weight": 700,
+    "usedBy": [
+      "div.you-label"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 8,
+    "weight": 400,
+    "usedBy": [
+      "div.ecosystem",
+      "span",
+      "span.updated",
+      "span.away-text",
+      "span.serial-number"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 8,
+    "weight": 550,
+    "usedBy": [
+      "button.text-button"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 8,
+    "weight": 650,
+    "usedBy": [
+      "div.eyebrow",
+      "span.safety-label"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 9,
+    "weight": 400,
+    "usedBy": [
+      "span",
+      "p",
+      "span.simulation-note",
+      "span.emergency-badge"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 9,
+    "weight": 550,
+    "usedBy": [
+      "span.status",
+      "button.text-button",
+      "strong"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 9,
+    "weight": 600,
+    "usedBy": [
+      "button"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 9,
+    "weight": 650,
+    "usedBy": [
+      "div.eyebrow",
+      "div.emergency-mode-label",
+      "span.emergency-mode-label"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 9,
+    "weight": 700,
+    "usedBy": [
+      "strong"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 10,
+    "weight": 400,
+    "usedBy": [
+      "span",
+      "p",
+      "p.card-description",
+      "span.simulation-note",
+      "label",
+      "p.simulation-note"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 10,
+    "weight": 500,
+    "usedBy": [
+      "strong"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 10,
+    "weight": 550,
+    "usedBy": [
+      "button.text-button",
+      "strong",
+      "button.secondary-button",
+      "button.danger-button",
+      "button.responding-button"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 10,
+    "weight": 600,
+    "usedBy": [
+      "span.count"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 10,
+    "weight": 650,
+    "usedBy": [
+      "button.top-avatar"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 10,
+    "weight": 700,
+    "usedBy": [
+      "div.you-label"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 11,
+    "weight": 400,
+    "usedBy": [
+      "p",
+      "span",
+      "p.card-description",
+      "button.settings-link"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 11,
+    "weight": 550,
+    "usedBy": [
+      "strong",
+      "label"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 11,
+    "weight": 700,
+    "usedBy": [
+      "strong"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 12,
+    "weight": 400,
+    "usedBy": [
+      "p",
+      "button.back-button",
+      "div.profile-safe",
+      "div.permission-row",
+      "p.simulation-note"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 12,
+    "weight": 550,
+    "usedBy": [
+      "button.primary-button",
+      "button.secondary-button",
+      "strong",
+      "button.danger-button"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 12,
+    "weight": 700,
+    "usedBy": [
+      "strong"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 13,
+    "weight": 550,
+    "usedBy": [
+      "button.sos-button"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 14,
+    "weight": 700,
+    "usedBy": [
+      "strong"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 16,
+    "weight": 650,
+    "usedBy": [
+      "div.account-avatar"
+    ]
+  },
+  {
+    "family": "DM Sans",
+    "size": 20,
+    "weight": 600,
+    "usedBy": [
+      "div.alert-person"
+    ]
+  },
+  {
+    "family": "Inter",
+    "size": 9,
+    "weight": 400,
+    "usedBy": [
+      "text",
+      "svg-text"
+    ]
+  },
+  {
+    "family": "Inter",
+    "size": 11,
+    "weight": 400,
+    "usedBy": [
+      "text",
+      "svg-text"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 9,
+    "weight": 650,
+    "usedBy": [
+      "div.avatar"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 10,
+    "weight": 650,
+    "usedBy": [
+      "span.avatar",
+      "div.avatar"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 12,
+    "weight": 700,
+    "usedBy": [
+      "h3"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 13,
+    "weight": 650,
+    "usedBy": [
+      "div.avatar"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 14,
+    "weight": 650,
+    "usedBy": [
+      "div.avatar"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 14,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 15,
+    "weight": 700,
+    "usedBy": [
+      "h3"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 15,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 16,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 17,
+    "weight": 650,
+    "usedBy": [
+      "div.avatar"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 18,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 19,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 20,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 21,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 23,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 26,
+    "weight": 750,
+    "usedBy": [
+      "h1",
+      "span.greeting-dot"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 27,
+    "weight": 650,
+    "usedBy": [
+      "div.avatar"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 27,
+    "weight": 750,
+    "usedBy": [
+      "h1"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 28,
+    "weight": 750,
+    "usedBy": [
+      "h1"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 30,
+    "weight": 750,
+    "usedBy": [
+      "h1",
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 32,
+    "weight": 750,
+    "usedBy": [
+      "h2"
+    ]
+  },
+  {
+    "family": "Manrope",
+    "size": 70,
+    "weight": 650,
+    "usedBy": [
+      "span"
+    ]
+  }
+]

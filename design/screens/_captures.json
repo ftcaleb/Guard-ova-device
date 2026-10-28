@@ -1,0 +1,237 @@
+[
+  {
+    "name": "01-welcome-step1",
+    "desc": "Welcome / onboarding, step 1 of 3 (wearable)",
+    "full": false
+  },
+  {
+    "name": "02-welcome-step2",
+    "desc": "Welcome / onboarding, step 2 of 3 (network ring)",
+    "full": false
+  },
+  {
+    "name": "03-welcome-step3",
+    "desc": "Welcome / onboarding, step 3 of 3 (shield) – button reads \"Enter my safety space\"",
+    "full": false
+  },
+  {
+    "name": "10-home",
+    "desc": "Home / Overview – default state (safe, device connected, 4/5 network)",
+    "full": true
+  },
+  {
+    "name": "20-device-connected",
+    "desc": "My Device – Connected (normal)",
+    "full": true
+  },
+  {
+    "name": "21-device-disconnected",
+    "desc": "My Device – \"Disconnected\" warning state (amber pill + warning box + changed values)",
+    "full": true
+  },
+  {
+    "name": "22-home-device-disconnected",
+    "desc": "Home – device card in \"Disconnected\" state",
+    "full": true
+  },
+  {
+    "name": "21-device-low-battery",
+    "desc": "My Device – \"Low battery\" warning state (amber pill + warning box + changed values)",
+    "full": true
+  },
+  {
+    "name": "22-home-device-low-battery",
+    "desc": "Home – device card in \"Low battery\" state",
+    "full": true
+  },
+  {
+    "name": "21-device-gps-unavailable",
+    "desc": "My Device – \"GPS unavailable\" warning state (amber pill + warning box + changed values)",
+    "full": true
+  },
+  {
+    "name": "22-home-device-gps-unavailable",
+    "desc": "Home – device card in \"GPS unavailable\" state",
+    "full": true
+  },
+  {
+    "name": "23-device-toast-test-passed",
+    "desc": "My Device – toast after \"Test device\"",
+    "full": false
+  },
+  {
+    "name": "24-modal-device-preferences",
+    "desc": "Modal – Device preferences",
+    "full": false
+  },
+  {
+    "name": "30-network",
+    "desc": "My Network – 4/5 members, Add member tile",
+    "full": true
+  },
+  {
+    "name": "31-profile-mom-online",
+    "desc": "Member profile – Mom (Online)",
+    "full": true
+  },
+  {
+    "name": "32-profile-lerato-away",
+    "desc": "Member profile – Lerato (Away, amber pill)",
+    "full": true
+  },
+  {
+    "name": "33-modal-call-member",
+    "desc": "Modal – Call member (demo)",
+    "full": false
+  },
+  {
+    "name": "34-modal-invite-empty",
+    "desc": "Modal – Invite a trusted person (empty form)",
+    "full": false
+  },
+  {
+    "name": "35-modal-invite-filled",
+    "desc": "Modal – Invite form filled in (focus ring on input)",
+    "full": false
+  },
+  {
+    "name": "35b-modal-invite-validation-bug",
+    "desc": "PROTOTYPE BUG – name field pattern rejects every name, so the form never submits. Do NOT replicate (see README)",
+    "full": false
+  },
+  {
+    "name": "36-network-full-5of5",
+    "desc": "My Network – 5/5 after invite (intended behaviour: no Add tile, new \"Invited\" member) + toast",
+    "full": true
+  },
+  {
+    "name": "37-profile-invited",
+    "desc": "Member profile – invited member (\"Invitation pending\")",
+    "full": true
+  },
+  {
+    "name": "38-home-network-5of5",
+    "desc": "Home – network card at 5/5",
+    "full": true
+  },
+  {
+    "name": "40-live-map",
+    "desc": "Live Map – normal (member markers + member list)",
+    "full": true
+  },
+  {
+    "name": "50-sos-activation",
+    "desc": "SOS Activation (before countdown)",
+    "full": true
+  },
+  {
+    "name": "51-sos-countdown-5",
+    "desc": "SOS Countdown – 5 seconds (orb pulses)",
+    "full": false
+  },
+  {
+    "name": "52-sos-countdown-3",
+    "desc": "SOS Countdown – 3 seconds",
+    "full": false
+  },
+  {
+    "name": "53-home-toast-sos-cancelled",
+    "desc": "Home – toast after cancelling SOS",
+    "full": false
+  },
+  {
+    "name": "54-countdown-from-wearable",
+    "desc": "SOS Countdown triggered from the wearable (same screen)",
+    "full": false
+  },
+  {
+    "name": "55-emergency-active",
+    "desc": "Emergency Active – alerts delivered",
+    "full": true
+  },
+  {
+    "name": "56-modal-call-emergency",
+    "desc": "Modal – Call emergency services (112 note)",
+    "full": false
+  },
+  {
+    "name": "57-member-alert",
+    "desc": "Member Alert – what Mom sees (\"I’m responding\" not yet tapped)",
+    "full": true
+  },
+  {
+    "name": "58-modal-call-siyabonga",
+    "desc": "Modal – Call Siyabonga",
+    "full": false
+  },
+  {
+    "name": "59-member-alert-responding",
+    "desc": "Member Alert – after \"I’m responding\" (green button + toast)",
+    "full": true
+  },
+  {
+    "name": "60-emergency-someone-responding",
+    "desc": "Emergency Active – Mom shows \"Responding · On their way\"",
+    "full": true
+  },
+  {
+    "name": "61-home-emergency",
+    "desc": "Home – during an active emergency (rose safety card)",
+    "full": true
+  },
+  {
+    "name": "62-live-map-emergency",
+    "desc": "Live Map – during an emergency (red marker, emergency copy)",
+    "full": true
+  },
+  {
+    "name": "63-modal-notifications-emergency",
+    "desc": "Modal – Notifications during emergency (\"View active emergency\")",
+    "full": false
+  },
+  {
+    "name": "64-modal-end-emergency",
+    "desc": "Modal – Are you safe now?",
+    "full": false
+  },
+  {
+    "name": "65-home-toast-emergency-ended",
+    "desc": "Home – back to safe + toast \"Emergency ended…\"",
+    "full": false
+  },
+  {
+    "name": "71-history-with-incident",
+    "desc": "Incident History – with one resolved incident",
+    "full": false
+  },
+  {
+    "name": "70-history-empty",
+    "desc": "Incident History – empty state (no mobile tab; reached from desktop sidebar)",
+    "full": false
+  },
+  {
+    "name": "80-settings",
+    "desc": "Settings – both toggles on",
+    "full": true
+  },
+  {
+    "name": "81-settings-toggle-off",
+    "desc": "Settings – \"Share my location\" toggled off",
+    "full": true
+  },
+  {
+    "name": "82-modal-remove-member",
+    "desc": "Modal – Remove member (Thabo)",
+    "full": false
+  },
+  {
+    "name": "83-settings-member-removed",
+    "desc": "Settings – after removing a member (3/5) + toast",
+    "full": true
+  },
+  {
+    "name": "90-modal-notifications",
+    "desc": "Modal – Notifications (normal)",
+    "full": false
+  }
+]
