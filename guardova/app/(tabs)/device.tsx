@@ -1,16 +1,10 @@
 // app/(tabs)/device.tsx
+// My Device route entry
+// Renders DeviceScreen feature component
+
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { DeviceScreen } from '../../src/features/device/DeviceScreen';
 
 export default function DevicePage() {
-  return (
-    <View style={styles.container}>
-      <Text>My Device Screen (Phase 2)</Text>
-    </View>
-  );
+  return <DeviceScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 24 },
-});
-

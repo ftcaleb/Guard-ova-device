@@ -8,6 +8,7 @@ import { Slot, useRouter, usePathname } from 'expo-router';
 import { TopBar } from '../../src/components/shell/TopBar';
 import { BottomTabBar } from '../../src/components/shell/BottomTabBar';
 import { Toast } from '../../src/components/ui/Toast';
+import { DevicePreferencesModal } from '../../src/components/modals/DevicePreferencesModal';
 import { useStore } from '../../src/state/store';
 import { colors } from '../../src/theme/colors';
 
@@ -17,6 +18,7 @@ export default function TabsLayout() {
 
   const toast = useStore((s) => s.toast);
   const setToast = useStore((s) => s.setToast);
+  const modal = useStore((s) => s.modal);
   const setModal = useStore((s) => s.setModal);
 
   // Determine active tab & breadcrumb title based on route
@@ -74,6 +76,12 @@ export default function TabsLayout() {
 
       {/* Toast alert message if active */}
       <Toast message={toast} onDismiss={() => setToast('')} />
+
+      {/* Device preferences modal */}
+      <DevicePreferencesModal
+        visible={modal === 'device-settings'}
+        onClose={() => setModal(null)}
+      />
 
       {/* Bottom frosted Tab Bar */}
       <BottomTabBar activeTab={tab} onTabPress={handleTabPress} />

@@ -51,7 +51,7 @@ export function HomeScreen() {
   // Navigation handlers
   const handleWearablePress = () => {
     startSOS();
-    router.push('/sos/countdown');
+    router.push('/sos/countdown' as any);
   };
 
   const handleMemberPress = (m: Member) => {
@@ -375,7 +375,7 @@ export function HomeScreen() {
           style={styles.sosButton}
           onPress={() => {
             startSOS();
-            router.push('/sos/countdown');
+            router.push('/sos/countdown' as any);
           }}
           accessibilityRole="button"
           accessibilityLabel="Activate SOS"

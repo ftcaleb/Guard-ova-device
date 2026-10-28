@@ -158,7 +158,7 @@ export function Icon({ name, size = 20, color = 'currentColor' }: IconProps) {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      aria-hidden="true"
+      aria-hidden={true}
     >
       {renderPath()}
     </Svg>
