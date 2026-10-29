@@ -100,6 +100,8 @@ const styles = StyleSheet.create({
   },
   overlay: {
     backgroundColor: '#FFFFFFED',
+    // Web: the exact CSS backdrop-filter: blur(15px) (HOW-TO-MATCH §4: expo-blur tints on web)
+    ...(Platform.OS === 'web' ? ({ backdropFilter: 'blur(15px)' } as object) : {}),
   },
   topBorder: {
     height: 1,

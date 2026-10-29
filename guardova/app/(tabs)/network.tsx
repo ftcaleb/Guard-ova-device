@@ -1,16 +1,9 @@
 // app/(tabs)/network.tsx
+// My Network route entry — renders NetworkScreen feature component
+
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { NetworkScreen } from '../../src/features/network/NetworkScreen';
 
 export default function NetworkPage() {
-  return (
-    <View style={styles.container}>
-      <Text>My Network Screen</Text>
-    </View>
-  );
+  return <NetworkScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 24 },
-});
-

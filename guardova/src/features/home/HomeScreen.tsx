@@ -28,6 +28,7 @@ import { Avatar } from '../../components/ui/Avatar';
 import { LiveMap } from '../../components/ui/LiveMap';
 import { WearableImage } from '../../components/ui/WearableImage';
 import { useStore, Member } from '../../state/store';
+import { memberProfileHref } from '../../navigation/routes';
 
 export function HomeScreen() {
   const router = useRouter();
@@ -56,7 +57,8 @@ export function HomeScreen() {
 
   const handleMemberPress = (m: Member) => {
     setSelectedMember(m);
-    router.push(`/alert/${encodeURIComponent(m.name)}` as any);
+    // DESIGN-SPEC §9.1: tapping a member opens their profile
+    router.push(memberProfileHref(m.name));
   };
 
   return (
@@ -307,7 +309,7 @@ export function HomeScreen() {
               </View>
               <Text style={styles.addMemberText}>Add member</Text>
               <Text style={styles.addMemberSub}>
-                {5 - members.length} spot available
+                {5 - members.length} {5 - members.length === 1 ? 'spot' : 'spots'} available
               </Text>
             </Pressable>
           )}

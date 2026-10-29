@@ -1,7 +1,7 @@
 // src/components/ui/CountPill.tsx
 // DESIGN-SPEC §7.4: Count pill
 // Inline after heading: "4/5". DM Sans 600 10px, bg #F2F4F8, text #5C6D81, "/5" in #A9B2C0 400.
-// padding 4px 7px, radius 5px, margin-left 7px.
+// padding 4px 7px, radius 5px, margin-left 7px. Inline span: 13 pt content + 8 padding = 21 pt (layout/30-network.json).
 
 import React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
@@ -35,14 +35,14 @@ const styles = StyleSheet.create({
   current: {
     fontFamily: fonts.dmSans600,
     fontSize: 10,
-    lineHeight: 15,
+    lineHeight: 13,
     color: '#5C6D81',
     ...(Platform.OS === 'android' ? { includeFontPadding: false } : {}),
   },
   slash: {
     fontFamily: fonts.dmSans400,
     fontSize: 10,
-    lineHeight: 15,
+    lineHeight: 13,
     color: colors.countSlash,
     ...(Platform.OS === 'android' ? { includeFontPadding: false } : {}),
   },

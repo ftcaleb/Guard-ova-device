@@ -83,7 +83,15 @@ export interface AppState {
   // Computed actions
   endEmergency: () => void;
   startSOS: () => void;
+
+  // My Network actions
+  // Returns the first invalid field (nothing is added), or null when the invitation was created.
+  inviteMember: () => 'name' | 'phone' | null;
+  acceptInvitation: (name: string) => void;
+  declineInvitation: (name: string) => void;
 }
+
+export const MAX_MEMBERS = 5;
 
 // ─── Initial demo members (exact copy from App.tsx) ───────────────────────────
 const INITIAL_MEMBERS: Member[] = [
@@ -173,6 +181,42 @@ export const useStore = create<AppState>((set, get) => ({
 
   startSOS: () => {
     set({ countdown: 5, screen: 'countdown' });
+  },
+
+  // Invite (DESIGN-SPEC §16 #1: the prototype's name pattern rejected every name; this is the intended rule)
+  inviteMember: () => {
+    const { members, inviteName, invitePhone, notify } = get();
+    const name = inviteName.trim();
+    const nameTaken = members.some((m) => m.name.toLowerCase() === name.toLowerCase());
+    if (!name || nameTaken) return 'name';
+    if (invitePhone.length < 8) return 'phone';
+    if (members.length >= MAX_MEMBERS) return null;
+    const initials = name
+      .split(/\s+/)
+      .map((n) => n[0])
+      .join('')
+      .slice(0, 2)
+      .toUpperCase();
+    set({
+      members: [...members, { name, initials, relation: 'Trusted person', color: 'blue', status: 'Invited' }],
+      inviteName: '',
+      invitePhone: '',
+      modal: null,
+    });
+    notify('Demo invitation created. No SMS was sent.');
+    return null;
+  },
+
+  acceptInvitation: (name) => {
+    set((state) => ({
+      members: state.members.map((m) => (m.name === name ? { ...m, status: 'Online' } : m)),
+    }));
+    get().notify('Invitation accepted. Siyabonga has been notified.');
+  },
+
+  declineInvitation: (name) => {
+    get().removeMember(name);
+    get().notify('Invitation declined. Siyabonga has been notified.');
   },
 }));
 

@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: fonts.dmSans550,
     fontSize: 9,
-    lineHeight: 14,
+    lineHeight: 13.5, // pill 25.5 high (layout/31-profile-mom-online.json)
     ...(Platform.OS === 'android' ? { includeFontPadding: false } : {}),
   },
   textOk: {

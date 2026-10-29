@@ -1,7 +1,10 @@
 // src/components/ui/Avatar.tsx
-// DESIGN-SPEC §3.7 & §7.6: Avatar with 145deg gradient, white border, ring, presence dot
+// DESIGN-SPEC §3.7 & §7.6: Avatar with 145deg gradient, white border, 1px #EEE ring, presence dot
 // LinearGradient start/end for 145 deg: start={x: 0.101, y: -0.070}, end={x: 0.899, y: 1.070}
 // Online: #41967D, Away: #DFB554
+// Sizes (design/layout): 45 home cards, 48 My Network, 35 small (2px border), 30 map list, 90 profile.
+// The dot is 9 × 9 with a 2px white border, inside the avatar's white border (CSS bottom 0 / right 0 of the
+// padding box), so its offset equals the border width. Invited members show the online dot too (refs 36, 37).
 
 import React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
@@ -14,6 +17,7 @@ interface AvatarProps {
   member: Member;
   size?: number; // default 45
   small?: boolean; // 35px
+  showPresence?: boolean; // default true (map markers in the reference have no dot)
 }
 
 const GRADIENTS = {
@@ -35,14 +39,31 @@ const GRADIENTS = {
   },
 };
 
-export function Avatar({ member, size = 45, small = false }: AvatarProps) {
+// Initials size per avatar size (index.css: .avatar 13, .small 10, map list 9, My Network 14, profile 27)
+function initialsSize(size: number) {
+  if (size >= 90) return 27;
+  if (size >= 48) return 14;
+  if (size >= 45) return 13;
+  if (size >= 35) return 10;
+  return 9;
+}
+
+export function Avatar({ member, size = 45, small = false, showPresence = true }: AvatarProps) {
   const actualSize = small ? 35 : size;
   const config = GRADIENTS[member.color] || GRADIENTS.blue;
-  const fontSize = small ? 11 : actualSize >= 90 ? 27 : 13;
+  const fontSize = initialsSize(actualSize);
+  const borderWidth = actualSize <= 35 ? 2 : 3;
   const presenceSize = 9;
 
   return (
     <View style={[styles.container, { width: actualSize, height: actualSize }]}>
+      {/* 0 0 0 1px #EEE outline ring, outside the box */}
+      <View
+        style={[
+          styles.ring,
+          { width: actualSize + 2, height: actualSize + 2, borderRadius: (actualSize + 2) / 2 },
+        ]}
+      />
       <LinearGradient
         colors={config.colors}
         start={{ x: 0.101, y: -0.07 }}
@@ -53,7 +74,7 @@ export function Avatar({ member, size = 45, small = false }: AvatarProps) {
             width: actualSize,
             height: actualSize,
             borderRadius: actualSize / 2,
-            borderWidth: small ? 2 : 3,
+            borderWidth,
           },
         ]}
       >
@@ -62,6 +83,7 @@ export function Avatar({ member, size = 45, small = false }: AvatarProps) {
             styles.initials,
             {
               fontSize,
+              lineHeight: fontSize * 1.5,
               color: config.textColor,
             },
           ]}
@@ -71,7 +93,7 @@ export function Avatar({ member, size = 45, small = false }: AvatarProps) {
       </LinearGradient>
 
       {/* Presence dot (online or away) */}
-      {member.status !== 'Invited' && (
+      {showPresence && (
         <View
           style={[
             styles.dot,
@@ -79,6 +101,8 @@ export function Avatar({ member, size = 45, small = false }: AvatarProps) {
               width: presenceSize,
               height: presenceSize,
               borderRadius: presenceSize / 2,
+              bottom: borderWidth,
+              right: borderWidth,
               backgroundColor:
                 member.status === 'Away'
                   ? colors.awayPresenceDot
@@ -97,28 +121,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  ring: {
+    position: 'absolute',
+    top: -1,
+    left: -1,
+    borderWidth: 1,
+    borderColor: colors.avatarRing,
+  },
   circle: {
     borderColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
-    // 0 0 0 1px #EEE outline simulated via shadow/subtle border in RN
-    shadowColor: '#000000',
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 1 },
-    shadowRadius: 1,
-    elevation: 1,
   },
   initials: {
     fontFamily: fonts.manrope650,
+    letterSpacing: 0,
     textAlign: 'center',
     ...(Platform.OS === 'android' ? { includeFontPadding: false } : {}),
   },
   dot: {
     position: 'absolute',
-    bottom: -1,
-    right: -1,
     borderWidth: 2,
     borderColor: '#FFFFFF',
   },
 });
-

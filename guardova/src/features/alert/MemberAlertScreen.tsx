@@ -39,6 +39,7 @@ import { Avatar } from '../../components/ui/Avatar';
 import { LiveMap } from '../../components/ui/LiveMap';
 import { CallModal } from '../../components/modals/CallModal';
 import { useStore } from '../../state/store';
+import { memberProfileHref } from '../../navigation/routes';
 
 export function MemberAlertScreen() {
   const router = useRouter();
@@ -67,9 +68,17 @@ export function MemberAlertScreen() {
     }
   };
 
+  const emergency = useStore((s) => s.emergency);
+
+  // Prototype: back to the emergency screen during an emergency, otherwise to the member's profile
   const handleReturnView = () => {
-    router.replace('/(tabs)');
+    if (emergency) router.replace('/(tabs)');
+    else router.replace(memberProfileHref(viewingMember.name));
   };
+
+  // D5: the map shows "← Back to the alert" when opened from here
+  const openMap = () =>
+    router.push({ pathname: '/(tabs)/map', params: { from: 'alert', member: viewingMember.name } });
 
   return (
     <ScrollView
@@ -129,7 +138,7 @@ export function MemberAlertScreen() {
             <LiveMap
               height={180}
               emergency={true}
-              onPress={() => router.push('/(tabs)/map')}
+              onPress={openMap}
             />
           </View>
 
@@ -147,7 +156,7 @@ export function MemberAlertScreen() {
           {/* 8. Primary Wide Button: View live location */}
           <Pressable
             style={styles.viewLocationButton}
-            onPress={() => router.push('/(tabs)/map')}
+            onPress={openMap}
             accessibilityRole="button"
             accessibilityLabel="View live location"
           >

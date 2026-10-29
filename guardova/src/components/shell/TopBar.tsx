@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     zIndex: 50,
   },
   inner: {
-    height: 66,
+    height: 65, // 66 pt including the 1 pt bottom border (layout: header 66, content starts at 66)
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
