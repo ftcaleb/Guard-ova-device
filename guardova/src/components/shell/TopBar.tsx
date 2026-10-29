@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
     zIndex: 50,
   },
   inner: {
-    height: 66,
+    // layout/*.json: header.topbar is 66 tall including its 1px bottom border
+    height: 65,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

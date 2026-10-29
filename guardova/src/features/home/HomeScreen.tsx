@@ -28,6 +28,7 @@ import { Avatar } from '../../components/ui/Avatar';
 import { LiveMap } from '../../components/ui/LiveMap';
 import { WearableImage } from '../../components/ui/WearableImage';
 import { useStore, Member } from '../../state/store';
+import { simulateWearablePress } from '../sos/wearable';
 
 export function HomeScreen() {
   const router = useRouter();
@@ -36,7 +37,6 @@ export function HomeScreen() {
   const emergency = useStore((s) => s.emergency);
   const deviceState = useStore((s) => s.deviceState);
   const members = useStore((s) => s.members);
-  const startSOS = useStore((s) => s.startSOS);
   const setSelectedMember = useStore((s) => s.setSelectedMember);
   const setModal = useStore((s) => s.setModal);
 
@@ -49,9 +49,9 @@ export function HomeScreen() {
   const connVal = deviceState === 'Disconnected' ? 'Offline' : 'Online';
 
   // Navigation handlers
+  // Tapping the wearable face behaves like pressing the real wearable (DESIGN-SPEC §9.1).
   const handleWearablePress = () => {
-    startSOS();
-    router.push('/sos/countdown' as any);
+    simulateWearablePress();
   };
 
   const handleMemberPress = (m: Member) => {
@@ -373,10 +373,7 @@ export function HomeScreen() {
 
         <Pressable
           style={styles.sosButton}
-          onPress={() => {
-            startSOS();
-            router.push('/sos/countdown' as any);
-          }}
+          onPress={() => router.push('/sos' as any)}
           accessibilityRole="button"
           accessibilityLabel="Activate SOS"
         >

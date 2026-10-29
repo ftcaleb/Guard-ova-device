@@ -120,6 +120,23 @@ export const colors = {
   emergencyShieldTileBg: '#F4DEDE',
   emergencyShieldTileBorder: '#EED1D1',
   emergencyShieldIcon: '#BF6469',
+  // SOS / Countdown / Emergency Active (layout/50, 52, 55)
+  sosBodyText: '#939DAB',             // focused-layout paragraph
+  sosNetworkText: '#929DAB',          // "4 trusted people are here for you"
+  emergencyMetricIcon: '#CB7F83',
+  emergencyMetricLabel: '#929BAA',
+  emergencyMetricValue: '#CA646A',
+  emergencyMetricDot: '#D65F69',
+  responseStatusText: '#9AA6B2',
+  responseCheck: '#6F9B87',
+
+  // ─── Shared controls (layout/50, 55, 56, 64) ─────────────────────────────
+  secondaryButtonBorder: '#DDE3EC',
+  simulationNote: '#A1A8B1',
+  modalBackdrop: '#17223B45',
+  modalBorder: '#E5EAF3',
+  modalClose: '#A0AABB',
+  modalText: '#9AA4B3',
 
   // ─── 3.7 Avatar gradients ────────────────────────────────────────────────
   avatarRoseStart: '#EFE5DE',

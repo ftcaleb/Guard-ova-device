@@ -48,7 +48,7 @@ export function MemberAlertScreen() {
   const members = useStore((s) => s.members);
   const selectedMember = useStore((s) => s.selectedMember);
   const responding = useStore((s) => s.responding);
-  const setResponding = useStore((s) => s.setResponding);
+  const respond = useStore((s) => s.respond);
   const notify = useStore((s) => s.notify);
 
   const [callModalVisible, setCallModalVisible] = useState(false);
@@ -62,7 +62,8 @@ export function MemberAlertScreen() {
 
   const handleRespondingPress = () => {
     if (!responding) {
-      setResponding(true);
+      // Decision D16: mark the member this alert is viewed as
+      respond(viewingMember.name);
       notify('Siyabonga has been notified that you’re responding.');
     }
   };

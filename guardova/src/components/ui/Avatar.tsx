@@ -38,7 +38,9 @@ const GRADIENTS = {
 export function Avatar({ member, size = 45, small = false }: AvatarProps) {
   const actualSize = small ? 35 : size;
   const config = GRADIENTS[member.color] || GRADIENTS.blue;
-  const fontSize = small ? 11 : actualSize >= 90 ? 27 : 13;
+  // index.css: .avatar 13px, .avatar.small 10px (2px border), profile 27px
+  const fontSize = small ? 10 : actualSize >= 90 ? 27 : 13;
+  const borderWidth = small ? 2 : 3;
   const presenceSize = 9;
 
   return (
@@ -53,7 +55,7 @@ export function Avatar({ member, size = 45, small = false }: AvatarProps) {
             width: actualSize,
             height: actualSize,
             borderRadius: actualSize / 2,
-            borderWidth: small ? 2 : 3,
+            borderWidth,
           },
         ]}
       >
@@ -79,6 +81,9 @@ export function Avatar({ member, size = 45, small = false }: AvatarProps) {
               width: presenceSize,
               height: presenceSize,
               borderRadius: presenceSize / 2,
+              // `.avatar i { bottom: 0; right: 0 }` sits inside the white border
+              bottom: borderWidth,
+              right: borderWidth,
               backgroundColor:
                 member.status === 'Away'
                   ? colors.awayPresenceDot
@@ -101,12 +106,8 @@ const styles = StyleSheet.create({
     borderColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
-    // 0 0 0 1px #EEE outline simulated via shadow/subtle border in RN
-    shadowColor: '#000000',
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 1 },
-    shadowRadius: 1,
-    elevation: 1,
+    // box-shadow: 0 0 0 1px #eee (RN 0.88 boxShadow supports spread)
+    boxShadow: '0px 0px 0px 1px #EEEEEE',
   },
   initials: {
     fontFamily: fonts.manrope650,
@@ -115,8 +116,6 @@ const styles = StyleSheet.create({
   },
   dot: {
     position: 'absolute',
-    bottom: -1,
-    right: -1,
     borderWidth: 2,
     borderColor: '#FFFFFF',
   },

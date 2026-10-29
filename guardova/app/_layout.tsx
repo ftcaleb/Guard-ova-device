@@ -8,6 +8,8 @@ import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import { useStore } from '../src/state/store';
+import { useSosEngine } from '../src/features/sos/useSosEngine';
 
 // Keep splash screen visible until fonts load
 SplashScreen.preventAutoHideAsync();
@@ -34,13 +36,20 @@ export default function RootLayout() {
     'Inter-400': require('../assets/fonts/Inter-400.ttf'),
   });
 
+  // The persisted emergency state must be loaded before the first screen renders,
+  // so an active emergency reopens straight onto Emergency Active (no flash of Home).
+  const hasHydrated = useStore((s) => s.hasHydrated);
+  const ready = (fontsLoaded || !!fontError) && hasHydrated;
+
   useEffect(() => {
-    if (fontsLoaded || fontError) {
+    if (ready) {
       SplashScreen.hideAsync();
     }
-  }, [fontsLoaded, fontError]);
+  }, [ready]);
 
-  if (!fontsLoaded && !fontError) {
+  useSosEngine(ready);
+
+  if (!ready) {
     return null;
   }
 
@@ -51,6 +60,10 @@ export default function RootLayout() {
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="alert/[member]" options={{ headerShown: false }} />
+        {/* Emergency flow: no screen transitions (HOW-TO-MATCH §3) */}
+        <Stack.Screen name="sos/index" options={{ headerShown: false, animation: 'none' }} />
+        <Stack.Screen name="sos/countdown" options={{ headerShown: false, animation: 'none' }} />
+        <Stack.Screen name="emergency" options={{ headerShown: false, animation: 'none', gestureEnabled: false }} />
       </Stack>
     </>
   );

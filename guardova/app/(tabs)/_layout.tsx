@@ -65,6 +65,7 @@ export default function TabsLayout() {
       {/* Top Bar (Breadcrumbs, Bell, SN Avatar) */}
       <TopBar
         title={title}
+        hasUnread
         onBellPress={() => setModal('notifications')}
         onAvatarPress={() => router.push('/(tabs)/settings')}
       />

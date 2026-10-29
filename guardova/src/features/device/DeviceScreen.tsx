@@ -28,13 +28,13 @@ import { Icon } from '../../components/Icon';
 import { StatusPill } from '../../components/ui/StatusPill';
 import { WearableImage } from '../../components/ui/WearableImage';
 import { useStore, DeviceState } from '../../state/store';
+import { simulateWearablePress } from '../sos/wearable';
 
 export function DeviceScreen() {
   const router = useRouter();
 
   const deviceState = useStore((s) => s.deviceState);
   const setDeviceState = useStore((s) => s.setDeviceState);
-  const startSOS = useStore((s) => s.startSOS);
   const setModal = useStore((s) => s.setModal);
   const notify = useStore((s) => s.notify);
 
@@ -87,9 +87,9 @@ export function DeviceScreen() {
     }
   };
 
+  // "Simulate wearable button press" and the wearable face: same path as a real BLE press.
   const handleSimulatePress = () => {
-    startSOS();
-    router.push('/sos/countdown' as any);
+    simulateWearablePress();
   };
 
   const handleStateSelect = (state: DeviceState) => {

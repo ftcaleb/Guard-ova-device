@@ -2,7 +2,7 @@
 // DESIGN-SPEC §12.2: Live Map SVG representation
 // Exact SVG paths copied from design/reference-prototype/src/App.tsx line 48-63
 
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable, Platform } from 'react-native';
 import Svg, { Rect, Path, G, Text as SvgText } from 'react-native-svg';
 import { colors } from '../../theme/colors';
@@ -22,6 +22,7 @@ export function LiveMap({
   onPress,
   height = 180,
 }: LiveMapProps) {
+  const [youSize, setYouSize] = useState({ width: 0, height: 0 });
   return (
     <Pressable
       style={[styles.container, { height }]}
@@ -31,6 +32,8 @@ export function LiveMap({
     >
       <Svg
         style={StyleSheet.absoluteFill}
+        width="100%"
+        height="100%"
         viewBox="0 0 700 400"
         preserveAspectRatio="xMidYMid slice"
       >
@@ -75,7 +78,18 @@ export function LiveMap({
       </Svg>
 
       {/* YOU / SIYABONGA Marker centered */}
-      <View style={[styles.mapYou, { top: '47%', left: '48%' }]}>
+      {/* .map-you { top: 47%; left: 48%; transform: translate(-50%, -50%) } */}
+      <View
+        onLayout={(e) => setYouSize(e.nativeEvent.layout)}
+        style={[
+          styles.mapYou,
+          {
+            top: '47%',
+            left: '48%',
+            transform: [{ translateX: -youSize.width / 2 }, { translateY: -youSize.height / 2 }],
+          },
+        ]}
+      >
         <View style={[styles.youLabel, emergency && styles.youLabelDanger]}>
           <Text style={[styles.youLabelText, emergency && styles.youLabelTextDanger]}>
             {emergency ? 'SIYABONGA' : 'YOU'}
@@ -110,7 +124,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     gap: 7,
-    transform: [{ translateX: -20 }, { translateY: -28 }],
   },
   youLabel: {
     paddingVertical: 4,
@@ -146,14 +159,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 3,
     borderColor: '#FFFFFF',
-    shadowColor: colors.mapYouPulse,
-    shadowOpacity: 0.35,
-    shadowRadius: 11,
-    elevation: 4,
+    // .location-pulse { box-shadow: 0 0 0 11px #467bee14, 0 0 0 25px #467bee0b }
+    boxShadow: `0px 0px 0px 11px ${colors.mapYouHalo1}, 0px 0px 0px 25px ${colors.mapYouHalo2}`,
   },
   locationPulseDanger: {
     backgroundColor: '#D86165',
-    shadowColor: '#D86165',
+    boxShadow: '0px 0px 0px 11px #d8616514, 0px 0px 0px 25px #d861650b',
   },
   mapLiveBadge: {
     position: 'absolute',
